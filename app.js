@@ -1,14 +1,15 @@
 const express = require("express");
 const compression = require("compression");
 const mongoose = require("mongoose");
+const {Eta} = require("eta");
 
 const app = express();
+let eta = new Eta({views: `${__dirname}/views`});
+app.use(compression());
 
 let mongooseOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
 };
 
 if(process.env.NODE_ENV === "production"){
@@ -19,9 +20,8 @@ if(process.env.NODE_ENV === "production"){
 
 mongoose.connect("mongodb://127.0.0.1/leemorgan", mongooseOptions);
 
-app.use(compression());
 
-require("./routes.js")(app);
+require("./routes.js")(app, eta);
 
 if(process.env.NODE_ENV === "production"){
     module.exports = app;
