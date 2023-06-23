@@ -1,0 +1,19 @@
+{
+  "name": "just-flash-cards",
+  "version": "1.0.0",
+  "description": "They're just fucking flash cards...",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MorganLee909/just-flash-cards.git"
+  },
+  "author": "Lee Morgan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MorganLee909/just-flash-cards/issues"
+  },
+  "homepage": "https://github.com/MorganLee909/just-flash-cards#readme"
+}
