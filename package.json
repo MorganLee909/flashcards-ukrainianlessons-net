@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/MorganLee909/just-flash-cards/issues"
   },
-  "homepage": "https://github.com/MorganLee909/just-flash-cards#readme"
+  "homepage": "https://github.com/MorganLee909/just-flash-cards#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1"
+  }
 }
