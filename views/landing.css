@@ -9,3 +9,10 @@ h2{
     max-height: 50%;
     overflow-y: auto;
 }
+
+#entryButtons{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    max-width: 500px;
+}

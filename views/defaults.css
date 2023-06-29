@@ -4,6 +4,7 @@
     --richBlack: #0d1b2a;
     --oxfordBlue: #1b263b;
     --yinmnBlue: #415a77;
+    --yinmnBlueMod: #2b4e77;
     --silverLakeBlue: #778da9;
     --platinum: #e0e1dd;
 }
@@ -32,4 +33,34 @@ body{
     text-decoration: none;
     font-weight: bold;
     font-size: 22px;
+    cursor: pointer;
+}
+
+.button:hover{
+    background: var(--yinmnBlueMod);
+}
+
+.standardForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0 0 5px white;
+    height: 400px;
+    width: 600px;
+    padding: 35px;
+}
+
+.standardForm label{
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.standardForm input{
+    font-size: 24px;
+}
+
+.standardFormBtns{
+    display: flex;
+    margin: 0 auto;
 }

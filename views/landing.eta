@@ -10,10 +10,10 @@
 <body>
     <h1>Just Flash Cards</h1>
 
-    <a class="button" href="/deck/new">New Deck</a>
+    <div id="entryButtons">
+        <a class="button" href="/login">Login</a>
 
-    <h2>Prepared Decks</h2>
-
-    <div id="decks"></div>
+        <a class="button" href="/signup">Sign Up</a>
+    </div>
 </body>
 </html>

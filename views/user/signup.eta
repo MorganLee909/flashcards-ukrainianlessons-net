@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Sign up | Just Flash Cards</title>
+    <style><%~ include("../defaults.css") %></style>
+</head>
+<body>
+    <form class="standardForm" action="/user/signup" method="post">
+        <h1>Sign Up</h1>
+
+        <label>Email:
+            <input name="email" type="email" placeholder="Email"/>
+        </label>
+
+        <label>Password:
+            <input name="password" type="password" placeholder="Password"/>
+        </label>
+
+        <div class="standardFormBtns">
+            <input class="button" type="submit" value="Sign Up"/>
+        </div>
+    </form>
+</body>
+</html>
