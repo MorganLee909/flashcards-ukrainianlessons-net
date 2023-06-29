@@ -1,5 +1,3 @@
-const Deck = require("../models/deck.js");
-
 module.exports = (app, eta)=>{
     /*
     Landing page
@@ -13,5 +11,12 @@ module.exports = (app, eta)=>{
     */
     app.get("/signup", (req, res)=>{
         res.send(eta.render("/user/signup.eta"));
+    });
+
+    /*
+    Log in
+    */
+    app.get("/login", (req, res)=>{
+        res.send(eta.render("/user/login.eta"));
     });
 }
