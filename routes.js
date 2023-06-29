@@ -1,4 +1,4 @@
-const Deck = require("./deck.js");
+const Deck = require("./models/deck.js");
 
 module.exports = (app, eta)=>{
     /*
@@ -7,7 +7,7 @@ module.exports = (app, eta)=>{
     app.get("/", (req, res)=>{
         Deck.find({})
             .then((decks)=>{
-                res.send(eta.render("landing.eta", {decks: decks}));
+                res.send(eta.render("landing.eta"));
             })
             .catch((err)=>{
                 console.error(err);
