@@ -5,6 +5,11 @@ let flip = (elem)=>{
     elem.classList.toggle("flipped");
 }
 
+let updateCounter = ()=>{
+    let counter = document.getElementById("counter");
+    counter.textContent = `Card: ${currentCard + 1} of ${cards.length}`;
+}
+
 let changeCard = (num)=>{
     currentCard += num;
     if(currentCard < 0) currentCard = 0;
@@ -15,6 +20,8 @@ let changeCard = (num)=>{
     }
 
     cards[currentCard].style.display = "flex";
+
+    updateCounter();
 }
 
 let shuffle = ()=>{
@@ -47,8 +54,12 @@ let shuffle = ()=>{
 
     //Update necessary data for display
     cards = document.getElementById("cards").children;
+    restart();
+}
+
+let restart = ()=>{
     currentCard = 0;
-    changeCard(0);
+    changeCard(0)
 }
 
 document.onkeyup = (event)=>{
@@ -56,4 +67,5 @@ document.onkeyup = (event)=>{
     if(event.keyCode === 39) changeCard(1);
     if(event.keyCode === 37) changeCard(-1);
     if(event.keyCode === 83) shuffle();
+    if(event.keyCode === 82) restart();
 }
