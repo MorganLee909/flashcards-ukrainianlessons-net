@@ -24,7 +24,6 @@ module.exports = {
                     }
                 }
 
-                console.log("something");
                 res.redirect("/user/dashboard");
             })
             .catch((err)=>{

@@ -17,8 +17,43 @@ let changeCard = (num)=>{
     cards[currentCard].style.display = "flex";
 }
 
+let shuffle = ()=>{
+    let cardContainer = document.getElementById("cards");
+
+    //Copy card elements to new array
+    let newArr = [];
+    for(let i = 0; i < cards.length; i++){
+        newArr.push(cards[i]);
+    }
+
+    //Shuffle new array
+    for(let i = 0; i < newArr.length; i++){
+        let newPos = Math.floor(Math.random() * newArr.length);
+
+        let temp = newArr[i];
+        newArr[i] = newArr[newPos];
+        newArr[newPos] = temp;
+    }
+
+    //Empty the container
+    while(cardContainer.children.length > 0){
+        cardContainer.removeChild(cardContainer.firstChild);
+    }
+
+    //Repopulate
+    for(let i = 0; i < newArr.length; i++){
+        cardContainer.appendChild(newArr[i]);
+    }
+
+    //Update necessary data for display
+    cards = document.getElementById("cards").children;
+    currentCard = 0;
+    changeCard(0);
+}
+
 document.onkeyup = (event)=>{
     if(event.keyCode === 32) flip(cards[currentCard]);
     if(event.keyCode === 39) changeCard(1);
     if(event.keyCode === 37) changeCard(-1);
+    if(event.keyCode === 83) shuffle();
 }
