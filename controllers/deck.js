@@ -12,6 +12,28 @@ module.exports = {
     },
 
     /*
+    GET: Display a single deck
+    req.params.deck = Deck ID
+    */
+    viewOne: function(req, res){
+        Deck.findOne({_id: req.params.deck})
+            .then((deck)=>{
+                for(let i = 0; i < res.locals.user.decks.length; i++){
+                    if(res.locals.user.decks[i].toString() === deck._id.toString()){
+                        return res.send(eta.render("/deck/viewOne.eta", {deck: deck}));
+                    }
+                }
+
+                console.log("something");
+                res.redirect("/user/dashboard");
+            })
+            .catch((err)=>{
+                console.error(err);
+                res.redirect("/user/dashboard");
+            });
+    },
+
+    /*
     POST: Create a new deck
     req.body = {
         name: String

@@ -36,7 +36,6 @@ module.exports = {
                 console.error(err);
                 res.redirect("/");
             });
-        // res.send(eta.render("/user/dashboard.eta", {user: res.locals.user}));
     },
     
     /*

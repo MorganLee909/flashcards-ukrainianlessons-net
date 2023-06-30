@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title><%=it.deck.name%> | Just Flash Cards</title>
+    <style><%~ include("../defaults.css") %></style>
+    <style><%~ include("./viewOne.css") %></style>
+</head>
+<body>
+    <h1><%=it.deck.name%></h1>
+
+    <div id="cards">
+        <% for(let i = 0; i < it.deck.cards.length; i++){ %>
+            <% if(i === 0){ %>
+                <div class="card" onclick="flip(this)">
+            <% }else{ %>
+                <div class="card" onclick="flip(this)" style="display: none">
+            <% } %>
+                    <p class="front"><%=it.deck.cards[i][0]%></p>
+                    <p class="back"><%=it.deck.cards[i][1]%></p>
+                </div>
+        <% } %>
+    </div>
+
+    <script><%~ include("./viewOne.js") %></script>
+</body>
+</html>
