@@ -29,8 +29,7 @@ if(process.env.NODE_ENV === "production"){
 
 mongoose.connect("mongodb://127.0.0.1/flashcards", mongooseOptions);
 
-require("./routes/pages.js")(app, eta);
-require("./routes/user.js")(app, eta);
+require("./routes.js")(app, eta);
 
 if(process.env.NODE_ENV === "production"){
     module.exports = app;

@@ -3,27 +3,32 @@ const User = require("../models/user.js");
 const helper = require("../helper.js");
 const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
-const {userAuth} = require("../middleware.js");
 
-module.exports = (app, eta)=>{
+const {Eta} = require("eta");
+let eta = new Eta({views: `${__dirname}/../views`});
+
+module.exports = {
     /*
-    Sign up
+    Sign up page
     */
-    app.get("/user/signup", (req, res)=>{
+    signupPage: function(req, res){
         res.send(eta.render("/user/signup.eta"));
-    });
+    },
 
     /*
-    Log in
+    Log in page
     */
-    app.get("/user/login", (req, res)=>{
+    loginPage: function(req, res){
         if(req.session.user) return res.redirect("/user/dashboard");
         res.send(eta.render("/user/login.eta"));
-    });
+    },
 
-    app.get("/user/dashboard", userAuth, (req, res)=>{
+    /*
+    DashboardPage
+    */
+    dashboardPage: function(req, res){
         res.send(eta.render("/user/dashboard.eta", {user: res.locals.user}));
-    });
+    },
     
     /*
     POST: Create user
@@ -32,8 +37,9 @@ module.exports = (app, eta)=>{
         password: String
         confirmPassword: String
     }
+    redirect = /user/login
     */
-    app.post("/user/signup", (req, res)=>{
+    signup: function(req, res){
         let email = req.body.email.toLowerCase();
         if(!helper.isValidEmail(email)) return res.redirect("/user/signup");
 
@@ -57,7 +63,7 @@ module.exports = (app, eta)=>{
                 console.error(err);
                 res.redirect("/user/signup");
             });
-    });
+    },
 
     /*
     POST: User Login
@@ -65,8 +71,9 @@ module.exports = (app, eta)=>{
         email: String
         password: String
     }
+    redirect = /user/dashboard
     */
-    app.post("/user/login", (req, res)=>{
+    login: function(req, res){
         let email = req.body.email.toLowerCase();
 
         User.findOne({email: email})
@@ -86,5 +93,5 @@ module.exports = (app, eta)=>{
                 console.error(err);
                 res.redirect("/user/login");
             });
-    });
+    }
 }
