@@ -3,6 +3,7 @@ const User = require("../models/user.js");
 const helper = require("../helper.js");
 const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
+const {userAuth} = require("../middleware.js");
 
 module.exports = (app, eta)=>{
     /*
@@ -16,7 +17,12 @@ module.exports = (app, eta)=>{
     Log in
     */
     app.get("/user/login", (req, res)=>{
+        if(req.session.user) return res.redirect("/user/dashboard");
         res.send(eta.render("/user/login.eta"));
+    });
+
+    app.get("/user/dashboard", userAuth, (req, res)=>{
+        res.send(eta.render("/user/dashboard.eta", {user: res.locals.user}));
     });
     
     /*

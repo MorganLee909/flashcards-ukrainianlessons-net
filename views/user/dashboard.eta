@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Dashboard | Just Flash Cards</title>
+    <style><%~ include("../defaults.css") %></style>
+</head>
+<body>
+    <h1>My Decks</h1>
+
+    <a class="button" href="/deck/new">Create Deck</a>
+</body>
+</html>
