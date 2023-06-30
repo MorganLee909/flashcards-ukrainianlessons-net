@@ -6,6 +6,10 @@
     color: var(--platinum);
 }
 
+#logout:hover{
+    color: var(--platinumMod);
+}
+
 .decks{
     height: 80%;
     overflow-y: auto;

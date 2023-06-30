@@ -7,6 +7,12 @@
     <style><%~ include("./viewOne.css") %></style>
 </head>
 <body>
+    <div id="menu">
+        <a href="/user/dashboard">Dashboard</a>
+
+        <a href="/user/logout">Logout</a>
+    </div>
+
     <h1><%=it.deck.name%></h1>
 
     <h2 id="counter">Card: 1 of <%=it.deck.cards.length%></h2>
