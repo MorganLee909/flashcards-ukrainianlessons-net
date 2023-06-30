@@ -1,4 +1,5 @@
 const user = require("./controllers/user.js");
+const deck = require("./controllers/deck.js");
 const other = require("./controllers/other.js");
 
 const {userAuth} = require("./middleware.js");
@@ -12,6 +13,9 @@ module.exports = (app, eta)=>{
     app.post("/user/signup", user.signup);
     app.post("/user/login", user.login);
     app.get("/user/logout", user.logout);
+
+    //DECK
+    app.get("/deck/new", userAuth, deck.new);
 
     //OTHER
     app.get("/", other.landing);
