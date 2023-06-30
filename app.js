@@ -1,12 +1,10 @@
 const express = require("express");
 const compression = require("compression");
 const mongoose = require("mongoose");
-const {Eta} = require("eta");
 const bodyParser = require("body-parser");
 const session = require("cookie-session");
 
 const app = express();
-let eta = new Eta({views: `${__dirname}/views`});
 
 app.use(compression());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -29,7 +27,7 @@ if(process.env.NODE_ENV === "production"){
 
 mongoose.connect("mongodb://127.0.0.1/flashcards", mongooseOptions);
 
-require("./routes.js")(app, eta);
+require("./routes.js")(app);
 
 if(process.env.NODE_ENV === "production"){
     module.exports = app;
