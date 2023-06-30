@@ -11,6 +11,7 @@ module.exports = (app, eta)=>{
 
     app.post("/user/signup", user.signup);
     app.post("/user/login", user.login);
+    app.get("/user/logout", user.logout);
 
     //OTHER
     app.get("/", other.landing);

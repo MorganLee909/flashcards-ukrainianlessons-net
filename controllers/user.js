@@ -93,5 +93,14 @@ module.exports = {
                 console.error(err);
                 res.redirect("/user/login");
             });
+    },
+
+    /*
+    GET: User logout
+    redirect = /
+    */
+    logout: function(req, res){
+        req.session.user = undefined;
+        res.redirect("/");
     }
 }
