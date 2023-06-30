@@ -15,6 +15,12 @@
 
     <h1><%=it.deck.name%></h1>
 
+    <div id="options">
+        <a class="button" href="/deck/<%=it.deck._id%>/edit">Edit</a>
+
+        <a class="button" href="/deck/<%=it.deck._id%>/delete">Delete</a>
+    </div>
+
     <h2 id="counter">Card: 1 of <%=it.deck.cards.length%></h2>
 
     <div id="cards">

@@ -18,6 +18,14 @@ body{
     color: var(--platinumMod);
 }
 
+#options{
+    display: flex;
+}
+
+#options > *{
+    margin: 0 35px;
+}
+
 h1{
     margin-bottom: 35px;
 }
