@@ -25,8 +25,10 @@ module.exports = {
             cards: JSON.parse(req.body.cards)
         });
 
-        deck.save()
-            .then((deck)=>{
+        res.locals.user.decks.push(deck._id);
+
+        Promise.all([deck.save(), res.locals.user.save()])
+            .then((response)=>{
                 res.redirect("/user/dashboard");
             })
             .catch((err)=>{

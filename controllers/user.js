@@ -1,4 +1,5 @@
 const User = require("../models/user.js");
+const Deck = require("../models/deck.js");
 
 const helper = require("../helper.js");
 const bcrypt = require("bcryptjs");
@@ -27,7 +28,15 @@ module.exports = {
     DashboardPage
     */
     dashboardPage: function(req, res){
-        res.send(eta.render("/user/dashboard.eta", {user: res.locals.user}));
+        Deck.find({_id: res.locals.user.decks}, {name: 1})
+            .then((decks)=>{
+                res.send(eta.render("/user/dashboard.eta", {decks: decks}));
+            })
+            .catch((err)=>{
+                console.error(err);
+                res.redirect("/");
+            });
+        // res.send(eta.render("/user/dashboard.eta", {user: res.locals.user}));
     },
     
     /*

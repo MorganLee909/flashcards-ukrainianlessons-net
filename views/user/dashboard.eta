@@ -8,8 +8,15 @@
 </head>
 <body>
     <a id="logout" href="/user/logout">Logout</a>
-
+    
     <h1>My Decks</h1>
+
+    <div class="decks">
+
+        <% for(let i = 0; i < it.decks.length; i++){ %>
+            <a class="deck" href="/deck/<%=it.decks[i]._id%>"><%=it.decks[i].name%></a>
+        <% } %>
+    </div>
 
     <a class="button" href="/deck/new">Create Deck</a>
 </body>
