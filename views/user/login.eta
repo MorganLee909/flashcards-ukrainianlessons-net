@@ -6,7 +6,7 @@
     <style><%~ include("../defaults.css") %></style>
 </head>
 <body>
-    <form class="standardForm" action="/login" method="post">
+    <form class="standardForm" action="/user/login" method="post">
         <h1>Log In</h1>
 
         <label>Email

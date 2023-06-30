@@ -11,9 +11,9 @@
     <h1>Just Flash Cards</h1>
 
     <div id="entryButtons">
-        <a class="button" href="/login">Login</a>
+        <a class="button" href="/user/login">Login</a>
 
-        <a class="button" href="/signup">Sign Up</a>
+        <a class="button" href="/user/signup">Sign Up</a>
     </div>
 </body>
 </html>

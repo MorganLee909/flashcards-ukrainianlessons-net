@@ -12,7 +12,11 @@ const UserSchema = new mongoose.Schema({
     decks: [{
         type: mongoose.Types.ObjectId,
         ref: "deck"
-    }]
+    }],
+    session: {
+        type: String,
+        required: false
+    }
 });
 
 module.exports = mongoose.model("user", UserSchema);
