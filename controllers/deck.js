@@ -56,5 +56,27 @@ module.exports = {
                 console.error(err);
                 res.redirect("/deck/new");
             });
+    },
+
+    /*
+    GET: Delete a deck
+    req.params.deck = Deck ID
+    redirect "/user/dashboard"
+    */
+    delete: function(req, res){
+        Deck.findOne({_id: req.params.deck})
+            .then((deck)=>{
+                if(!deck) return res.redirect(`/deck/${req.params.deck}`);
+                if(deck.creator.toString() !== res.locals.user._id.toString()) return res.redirect(`/deck/${req.params.deck}`);
+
+                return Deck.deleteOne({_id: req.params.deck});
+            })
+            .then(()=>{
+                res.redirect("/user/dashboard");
+            })
+            .catch((err)=>{
+                console.error(err);
+                res.redirect(`/deck/${req.params.deck}`);
+            });
     }
 }

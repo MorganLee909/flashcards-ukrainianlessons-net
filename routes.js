@@ -19,6 +19,7 @@ module.exports = (app)=>{
     app.get("/deck/:deck", userAuth, deck.viewOne);
 
     app.post("/deck/create", userAuth, deck.create);
+    app.get("/deck/:deck/delete", userAuth, deck.delete);
 
     //OTHER
     app.get("/", other.landing);
