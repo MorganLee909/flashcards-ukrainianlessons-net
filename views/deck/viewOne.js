@@ -68,6 +68,21 @@ let restart = ()=>{
     changeCard(0);
 }
 
+flipDeck = ()=>{
+    for(let i = 0; i < cards.length; i++){
+        let front = cards[i].querySelector(".front");
+        let back = cards[i].querySelector(".back");
+
+        front.classList.add("back");
+        front.classList.remove("front");
+
+        back.classList.add("front");
+        back.classList.remove("back");
+
+        restart();
+    }
+}
+
 document.onkeyup = (event)=>{
     if(event.keyCode === 32) flip(cards[currentCard]);
     if(event.keyCode === 39) changeCard(1);
