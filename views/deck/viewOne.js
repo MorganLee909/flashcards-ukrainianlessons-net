@@ -59,7 +59,13 @@ let shuffle = ()=>{
 
 let restart = ()=>{
     currentCard = 0;
-    changeCard(0)
+
+    //unflip all cards
+    for(let i = 0; i < cards.length; i++){
+        cards[i].classList.remove("flipped");
+    }
+
+    changeCard(0);
 }
 
 document.onkeyup = (event)=>{
