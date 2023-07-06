@@ -18,13 +18,28 @@ module.exports = {
     viewOne: function(req, res){
         Deck.findOne({_id: req.params.deck})
             .then((deck)=>{
-                for(let i = 0; i < res.locals.user.decks.length; i++){
-                    if(res.locals.user.decks[i].toString() === deck._id.toString()){
-                        return res.send(eta.render("/deck/viewOne.eta", {deck: deck}));
-                    }
-                }
+                if(deck.creator.toString() !== res.locals.user._id.toString()) return res.redirect("/user/dashboard");
 
+                res.send(eta.render("deck/viewOne.eta", {deck: deck}));
+            })
+            .catch((err)=>{
+                console.error(err);
                 res.redirect("/user/dashboard");
+            });
+    },
+
+    /*
+    GET: Display page to edit a deck
+    req.params.deck = Deck ID
+    render /deck/edit.eta
+    */
+    edit: function(req, res){
+        
+        Deck.findOne({_id: req.params.deck})
+            .then((deck)=>{
+                if(deck.creator.toString() !== res.locals.user._id.toString()) return res.redirect("/user/dashboard");
+
+                res.send(eta.render("deck/edit.eta", {deck: deck}));
             })
             .catch((err)=>{
                 console.error(err);

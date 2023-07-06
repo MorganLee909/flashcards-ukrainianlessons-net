@@ -2,6 +2,8 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
+    overflow-y: auto;
 }
 
 form > *{
@@ -34,3 +36,8 @@ form label{
 .newCard svg{
     margin: 23px 0 0 15px;
 }
+
+/* #cards{
+    height: 80%;
+    overflow-y: auto;
+} */
