@@ -21,6 +21,7 @@ module.exports = (app)=>{
 
     app.post("/deck/create", userAuth, deck.create);
     app.get("/deck/:deck/delete", userAuth, deck.delete);
+    app.post("/deck/:deck/update", userAuth, deck.update);
 
     //OTHER
     app.get("/", other.landing);

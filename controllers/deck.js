@@ -34,7 +34,7 @@ module.exports = {
     render /deck/edit.eta
     */
     edit: function(req, res){
-        
+
         Deck.findOne({_id: req.params.deck})
             .then((deck)=>{
                 if(deck.creator.toString() !== res.locals.user._id.toString()) return res.redirect("/user/dashboard");
@@ -92,6 +92,33 @@ module.exports = {
             .catch((err)=>{
                 console.error(err);
                 res.redirect(`/deck/${req.params.deck}`);
+            });
+    },
+
+    /*
+    POST: Update a deck
+    req.params.deck = Deck ID
+    req.body = {
+        name: String
+        cards: [[String, String]] (JSON)
+    }
+    */
+    update: function(req, res){
+        Deck.findOne({_id: req.params.deck})
+            .then((deck)=>{
+                if(deck.creator.toString() !== res.locals.user._id.toString()) return res.redirect(`/deck/${deck._id}/edit`);
+
+                deck.name = req.body.name;
+                deck.cards = JSON.parse(req.body.cards);
+
+                return deck.save();
+            })
+            .then((deck)=>{
+                res.redirect(`/deck/${deck._id}`);
+            })
+            .catch((err)=>{
+                console.error(err);
+                res.redirect(`/deck/${deck._id}/edit`);
             });
     }
 }
