@@ -89,4 +89,5 @@ document.onkeyup = (event)=>{
     if(event.keyCode === 37) changeCard(-1);
     if(event.keyCode === 83) shuffle();
     if(event.keyCode === 82) restart();
+    if(event.keyCode === 70) flipDeck();
 }

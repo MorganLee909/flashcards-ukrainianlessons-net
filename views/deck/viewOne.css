@@ -35,6 +35,7 @@ h1{
     height: 300px;
     width: 500px;
     perspective: 1000px;
+    position: relative;
 }
   
 .front, .back{
@@ -63,6 +64,22 @@ h1{
 
 .flipped .back {
     transform: rotateY(360deg);
+}
+
+.cardLabel{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.cardLabel.f{
+    color: #0f6800;
+}
+
+.cardLabel.b{
+    color: #6100e0;
 }
 
 .controls{

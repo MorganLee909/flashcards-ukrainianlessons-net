@@ -28,8 +28,8 @@
             <% }else{ %>
                 <div class="card" onclick="flip(this)" style="display: none">
             <% } %>
-                    <p class="front"><%=it.deck.cards[i][0]%></p>
-                    <p class="back"><%=it.deck.cards[i][1]%></p>
+                    <p class="front"><span class="cardLabel f">FRONT</span><%=it.deck.cards[i][0]%></p>
+                    <p class="back"><span class="cardLabel b">BACK</span><%=it.deck.cards[i][1]%></p>
                 </div>
         <% } %>
     </div>
