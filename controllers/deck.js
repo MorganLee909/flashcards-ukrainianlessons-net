@@ -1,6 +1,7 @@
 const {Eta} = require("eta");
 let eta = new Eta({views: `${__dirname}/../views`});
 
+const User = require("../models/user.js");
 const Deck = require("../models/deck.js");
 
 module.exports = {
@@ -16,9 +17,15 @@ module.exports = {
     req.params.deck = Deck ID
     */
     viewOne: function(req, res){
-        Deck.findOne({_id: req.params.deck})
-            .then((deck)=>{
-                if(deck.public || deck.creator.toString() === res.locals.user?._id.toString()) return res.send(eta.render("deck/viewOne.eta", {deck: deck}));
+        let promises = [];
+
+        promises.push(Deck.findOne({_id: req.params.deck}));
+        if(req.session.user) promises.push(User.findOne({session: req.session.user}));
+
+        Promise.all(promises)
+            .then((response)=>{
+                let deck = response[0];
+                if(deck.public || deck.creator.toString() === response[1]?._id.toString()) return res.send(eta.render("deck/viewOne.eta", {deck: deck}));
                 
                 return res.redirect("/user/dashboard");
             })
