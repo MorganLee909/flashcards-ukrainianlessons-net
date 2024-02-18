@@ -86,7 +86,10 @@ module.exports = {
 
         User.findOne({email: email})
             .then((user)=>{
-                if(!user) return res.redirect("/user/login");
+                if(!user){
+                    res.redirect("/user/login");
+                    throw "login";
+                }
 
                 user.session = crypto.randomUUID();
 
@@ -98,8 +101,10 @@ module.exports = {
                 res.redirect("/user/dashboard");
             })
             .catch((err)=>{
-                console.error(err);
-                res.redirect("/user/login");
+                if(err !== "login"){
+                    console.error(err);
+                    res.redirect("/user/login");
+                }
             });
     },
 
