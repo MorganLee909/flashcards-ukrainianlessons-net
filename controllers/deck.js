@@ -18,9 +18,9 @@ module.exports = {
     viewOne: function(req, res){
         Deck.findOne({_id: req.params.deck})
             .then((deck)=>{
-                if(deck.creator.toString() !== res.locals.user._id.toString()) return res.redirect("/user/dashboard");
-
-                res.send(eta.render("deck/viewOne.eta", {deck: deck}));
+                if(deck.public || deck.creator.toString() === res.locals.user._id.toString()) return res.send(eta.render("deck/viewOne.eta", {deck: deck}));
+                
+                return res.redirect("/user/dashboard");
             })
             .catch((err)=>{
                 console.error(err);
@@ -34,7 +34,6 @@ module.exports = {
     render /deck/edit.eta
     */
     edit: function(req, res){
-
         Deck.findOne({_id: req.params.deck})
             .then((deck)=>{
                 if(deck.creator.toString() !== res.locals.user._id.toString()) return res.redirect("/user/dashboard");

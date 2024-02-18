@@ -19,6 +19,11 @@ const DeckSchema = mongoose.Schema({
         type: Date,
         required: true,
         default: new Date()
+    },
+    public: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 });
 
