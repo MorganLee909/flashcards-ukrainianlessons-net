@@ -117,6 +117,7 @@ module.exports = {
 
                 deck.name = req.body.name;
                 deck.cards = JSON.parse(req.body.cards);
+                deck.public = req.body.public ? true : false;
 
                 return deck.save();
             })

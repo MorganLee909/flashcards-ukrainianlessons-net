@@ -14,6 +14,11 @@
             <input name="name" type="text" value="<%=it.deck.name%>" placeholder="Name" required/>
         </label>
 
+        <label>
+            <input name="public" type="checkbox"/>
+            Public
+        </label>
+
         <h2>Cards</h2>
 
         <div id="cards">
