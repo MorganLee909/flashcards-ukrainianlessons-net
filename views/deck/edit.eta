@@ -14,9 +14,9 @@
             <input name="name" type="text" value="<%=it.deck.name%>" placeholder="Name" required/>
         </label>
 
-        <label>
-            <input name="public" type="checkbox"/>
-            Public
+        <label id="checkbox">
+            <input name="public" type="checkbox" <%= it.deck.public ? "checked" : ""%>/>
+                Public
         </label>
 
         <h2>Cards</h2>
