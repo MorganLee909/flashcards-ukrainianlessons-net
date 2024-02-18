@@ -18,7 +18,7 @@ module.exports = {
     viewOne: function(req, res){
         Deck.findOne({_id: req.params.deck})
             .then((deck)=>{
-                if(deck.public || deck.creator.toString() === res.locals.user._id.toString()) return res.send(eta.render("deck/viewOne.eta", {deck: deck}));
+                if(deck.public || deck.creator.toString() === res.locals.user?._id.toString()) return res.send(eta.render("deck/viewOne.eta", {deck: deck}));
                 
                 return res.redirect("/user/dashboard");
             })
@@ -57,7 +57,8 @@ module.exports = {
         let deck = new Deck({
             name: req.body.name,
             creator: res.locals.user._id,
-            cards: JSON.parse(req.body.cards)
+            cards: JSON.parse(req.body.cards),
+            public: req.body.public ? true : false
         });
 
         res.locals.user.decks.push(deck._id);

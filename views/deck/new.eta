@@ -14,6 +14,11 @@
             <input name="name" type="text" placeholder="Name" required/>
         </label>
 
+        <label id="checkbox">
+            <input name="public" type="checkbox"/>
+            Public
+        </label>
+
         <h2>Cards</h2>
 
         <div id="cards"></div>

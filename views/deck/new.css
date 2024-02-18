@@ -36,3 +36,8 @@ form label{
 .newCard svg{
     margin: 23px 0 0 15px;
 }
+
+#checkbox{
+    display: inline-block;
+    margin: -30px 0 0 0;
+}
