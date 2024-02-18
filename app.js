@@ -25,7 +25,7 @@ if(process.env.NODE_ENV === "production"){
     mongooseOptions.pass = process.env.MONGODB_PASS;
 }
 
-mongoose.connect("mongodb://127.0.0.1/flashcards", mongooseOptions);
+mongoose.connect("mongodb://127.0.0.1/ukrainianlessons", mongooseOptions);
 
 require("./routes.js")(app);
 
