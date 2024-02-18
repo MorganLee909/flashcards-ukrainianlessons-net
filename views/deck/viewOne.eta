@@ -37,35 +37,50 @@
     </div>
 
     <div class="controls">
-        <svg onclick="changeCard(-1)" stroke-width="1.5" viewBox="0 0 24 24">
-            <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
+        <div class="tooltip">
+            <svg onclick="changeCard(-1)" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span class="tooltiptext">Previous card</span>
+        </div>
 
-        <svg onclick="shuffle()" stroke-width="1.5" viewBox="0 0 24 24">
-            <path d="M22 7c-3 0-8.5 0-10.5 5.5S5 18 2 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            <path d="M20 5l2 2-2 2M22 18c-3 0-8.5 0-10.5-5.5S5 7 2 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            <path d="M20 20l2-2-2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
+        <div class="tooltip">
+            <svg onclick="shuffle()" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M22 7c-3 0-8.5 0-10.5 5.5S5 18 2 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M20 5l2 2-2 2M22 18c-3 0-8.5 0-10.5-5.5S5 7 2 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M20 20l2-2-2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span class="tooltiptext">Shuffle</span>
+        </div>
 
-        <svg onclick="restart()" viewBox="0 0 24 24" fill="none">
-            <g clip-path="url(#restart_svg__clip0_1735_6488)" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6.677 20.567C2.531 18.021.758 12.758 2.717 8.144 4.875 3.06 10.745.688 15.829 2.846c5.084 2.158 7.456 8.029 5.298 13.113a9.954 9.954 0 01-3.962 4.608"></path>
-                <path d="M17 16v4.4a.6.6 0 00.6.6H22M12 22.01l.01-.011"></path>
-            </g>
-            <defs>
-                <clipPath id="restart_svg__clip0_1735_6488">
-                    <path fill="#fff" d="M0 0h24v24H0z"></path>
-                </clipPath>
-            </defs>
-        </svg>
+        <div class="tooltip">
+            <svg onclick="restart()" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#restart_svg__clip0_1735_6488)" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6.677 20.567C2.531 18.021.758 12.758 2.717 8.144 4.875 3.06 10.745.688 15.829 2.846c5.084 2.158 7.456 8.029 5.298 13.113a9.954 9.954 0 01-3.962 4.608"></path>
+                    <path d="M17 16v4.4a.6.6 0 00.6.6H22M12 22.01l.01-.011"></path>
+                </g>
+                <defs>
+                    <clipPath id="restart_svg__clip0_1735_6488">
+                        <path fill="#fff" d="M0 0h24v24H0z"></path>
+                    </clipPath>
+                </defs>
+            </svg>
+            <span class="tooltiptext">Restart</span>
+        </div>
 
-        <svg onclick="flipDeck()" stroke-width="1.5" viewBox="0 0 24 24">
-            <path d="M9.5 20H2L9.5 4v16zM20.125 20H22l-.938-2M16.375 20H14.5v-2M14.5 12v2M18.25 12l.938 2M16.375 8L14.5 4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
+        <div class="tooltip">
+            <svg onclick="flipDeck()" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M9.5 20H2L9.5 4v16zM20.125 20H22l-.938-2M16.375 20H14.5v-2M14.5 12v2M18.25 12l.938 2M16.375 8L14.5 4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span class="tooltiptext">Reverse cards</span>
+        </div>
 
-        <svg onclick="changeCard(1)" stroke-width="1.5" viewBox="0 0 24 24">
-            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
+        <div class="tooltip">
+            <svg onclick="changeCard(1)" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span class="tooltiptext">Next card</span>
+        </div>
     </div>
 
     <script><%~ include("./viewOne.js") %></script>
