@@ -36,6 +36,26 @@ module.exports = {
     },
 
     /*
+    POST: Display a custom built deck
+    req.query = {
+        cards = comma seperated values (front, back, front, back)
+    }
+    */
+    viewCustom: function(req, res){
+        let deck = {
+            name: "Custom Deck",
+            cards: []
+        };
+
+        let cards = req.query.cards.split(",");
+        for(let i = 0; i < cards.length; i+=2){
+            deck.cards.push([cards[i], cards[i+1]]);
+        }
+
+        res.send(eta.render("deck/viewOne.eta", {deck: deck}));
+    },
+
+    /*
     GET: Display page to edit a deck
     req.params.deck = Deck ID
     render /deck/edit.eta
