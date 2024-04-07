@@ -1,11 +1,13 @@
 const express = require("express");
 const compression = require("compression");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const session = require("cookie-session");
 
 const app = express();
 
+app.use(cors());
 app.use(compression());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
@@ -32,5 +34,5 @@ require("./routes.js")(app);
 if(process.env.NODE_ENV === "production"){
     module.exports = app;
 }else{
-    app.listen(process.env.PORT);
+    app.listen(8001);
 }
