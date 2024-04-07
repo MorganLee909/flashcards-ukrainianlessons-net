@@ -16,18 +16,13 @@ app.use(session({
     resave: false
 }));
 
-let mongooseOptions = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-};
+let mongoString = "mongodb://127.0.0.1/ukrainianlessons";
 
 if(process.env.NODE_ENV === "production"){
-    mongooseOptions.auth = {authSource: "admin"};
-    mongooseOptions.user = "website";
-    mongooseOptions.pass = process.env.MONGODB_PASS;
+    mongoString = `mongodb://website:${process.env.MONGODB_PASS}@127.0.0.1:27017/ukrainianlessons?authSource=admin`;
 }
 
-mongoose.connect("mongodb://127.0.0.1/ukrainianlessons", mongooseOptions);
+mongoose.connect(mongoString);
 
 require("./routes.js")(app);
 
