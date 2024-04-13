@@ -91,9 +91,14 @@ module.exports = {
                     throw "login";
                 }
 
-                user.session = crypto.randomUUID();
-
-                return user.save();
+                if(bcrypt.compareSync(req.body.password, user.password)){
+                    console.log("something");
+                    user.session = crypto.randomUUID();
+                    return user.save();
+                }else{
+                    console.log("else");
+                    throw "login";
+                }
             })
             .then((user)=>{
                 req.session.user = user.session;
@@ -101,10 +106,8 @@ module.exports = {
                 res.redirect("/user/dashboard");
             })
             .catch((err)=>{
-                if(err !== "login"){
-                    console.error(err);
-                    res.redirect("/user/login");
-                }
+                if(err !== "login"){console.error(err)}
+                res.redirect("/user/login");
             });
     },
 

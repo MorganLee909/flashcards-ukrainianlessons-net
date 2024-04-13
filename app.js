@@ -29,5 +29,5 @@ require("./routes.js")(app);
 if(process.env.NODE_ENV === "production"){
     module.exports = app;
 }else{
-    app.listen(8001);
+    app.listen(process.env.PORT);
 }
